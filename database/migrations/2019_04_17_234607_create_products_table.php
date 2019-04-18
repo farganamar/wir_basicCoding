@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('slug');
             $table->integer('qty');
             $table->double('price',8,2);
-            $table->longText('image');
+            $table->longText('image')->nullable();
             $table->unsignedInteger('category_id');
             $table->unsignedInteger('user_id');
             $table->timestamps();

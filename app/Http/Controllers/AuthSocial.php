@@ -22,7 +22,6 @@ class AuthSocial extends Controller
     {
         try {
 
-
             $googleUser = Socialite::driver($provider)->stateless()->user();
             $existUser = User::where('email', $googleUser->email)->first();
 
@@ -36,12 +35,12 @@ class AuthSocial extends Controller
                 $user->email = $googleUser->email;
                 $user->provider = $provider;
                 $user->provider_id = $googleUser->id;
-                $user->jabatan = 'author';
+                $user->jabatan = "customer";
                 $user->password = Hash::make('user123456');
                 $user->save();
                 Auth::loginUsingId($user->id);
             }
-            return redirect()->to('/dashboard');
+            return redirect()->to('/');
         } catch (Exception $e) {
             return $e;
         }

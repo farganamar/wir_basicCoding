@@ -11,27 +11,12 @@
         </div>
     </li>
 @endsection
-@section('header-title')
-Home
-@endsection
-@section('date')
-    <span class="m-subheader__daterange" id="m_dashboard_daterangepicker">
-        <span class="m-subheader__daterange-label">
-            <span class="m-subheader__daterange-title"></span>
-            <span class="m-subheader__daterange-date m--font-brand"></span>
-        </span>
-        <a href="#" class="btn btn-sm btn-brand m-btn m-btn--icon m-btn--icon-only m-btn--custom m-btn--pill">
-            <i class="la la-angle-down"></i>
-        </a>
-    </span>
-@endsection
 @section('content')
 
 <!--Begin::Section-->
 <div class="row">
 
     @foreach ($produk as $item)
-    <div class="col-xl-4">
 
         <!--begin:: Widgets/Blog-->
         <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height  m-portlet--rounded-force">
@@ -61,12 +46,7 @@ Home
                     <div class="m-widget19__content">
                         <div class="m-widget19__header">
                             <div class="m-widget19__user-img">
-                                @if ($item->user->jabatan == "admin")
-                                <img class="m-widget19__img" src="assets/app/media/img//users/user4.jpg" alt="">
-
-                                @else
-                                <img class="m-widget19__img" src="assets/app/media/img//users/user5.jpg" alt="">
-                                @endif
+                                <img class="m-widget19__img" src="{{asset('assets/app/media/img//users/user4.jpg')}}" alt="">
                             </div>
                             <div class="m-widget19__info">
                                 <span class="m-widget19__username">
@@ -86,28 +66,18 @@ Home
                             </div>
                         </div>
                         <div class="m-widget19__body">
-                            {{str_limit($item->deskripsi, $limit = 150)}}
+                            {{$item->deskripsi}}
                         </div>
                     </div>
-                    <div class="m-widget19__action">
-                        <a href="{{url('product' , $item->slug)}}"><button type="button" class="btn m-btn--pill btn-secondary m-btn m-btn--hover-brand m-btn--custom">See Detail</button></a>
-                    </div>
+
                 </div>
             </div>
         </div>
 
         <!--end:: Widgets/Blog-->
-    </div>
 
     @endforeach
 
-</div>
-<div class="row">
-    <div class="col-xl-12">
-
-        {{$produk->links()}}
-
-    </div>
 
 </div>
 

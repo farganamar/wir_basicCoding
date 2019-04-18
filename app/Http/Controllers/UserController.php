@@ -113,7 +113,7 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->jabatan = "merchant";
-        $user->password = $request->password;
+        $user->password = Hash::make($request->password);
         $user->save();
 
         Auth::loginUsingId($user->id);

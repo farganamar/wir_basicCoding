@@ -192,11 +192,13 @@ License: You must have a valid license purchased only from themeforest(the above
 								<div id="m_header_menu" class="m-header-menu m-aside-header-menu-mobile m-aside-header-menu-mobile--offcanvas  m-header-menu--skin-dark m-header-menu--submenu-skin-light m-aside-header-menu-mobile--skin-light m-aside-header-menu-mobile--submenu-skin-light ">
 									<ul class="m-menu__nav  m-menu__nav--submenu-arrow ">
                                         <li class="m-menu__item   @if(url()->current() == url('/') )m-menu__item--active @else m-menu__item @endif " aria-haspopup="true"><a href="{{url('/')}}" class="m-menu__link "><span class="m-menu__item-here"></span><span class="m-menu__link-text">Home</span></a></li>
-
                                         @auth
+
+                                        @if(Auth::user()->jabatan  == "merchant")
 
 
                                         <li class="m-menu__item  m-menu__item " aria-haspopup="true"><a href="{{url('/dashboard')}}" class="m-menu__link "><span class="m-menu__item-here"></span><span class="m-menu__link-text">Dashboard</span></a></li>
+                                        @endif
                                         @endauth
                                         @yield('menu')
 									</ul>
@@ -385,7 +387,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <a href="{{url('auth/google')}}"><button type="button" class="btn btn-secondary"><img src="https://img.icons8.com/color/20/000000/google-logo.png"> Sign Up With Google</button></a>
+                                {{--  <a href="{{url('auth/google')}}"><button type="button" class="btn btn-secondary"><img src="https://img.icons8.com/color/20/000000/google-logo.png"> Sign Up With Google</button></a>  --}}
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary" id="btn-register">Sign Up</button>
                             </div>

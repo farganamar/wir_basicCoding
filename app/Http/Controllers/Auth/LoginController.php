@@ -19,13 +19,20 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
+    protected function authenticated($request, $user)
+    {
+        if ($user->jabatan === 'merchant') {
+            return redirect()->intended('/dashboard');
+        }
 
+        return redirect()->intended('/');
+    }
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
-    protected $redirectTo = '/dashboard';
+    // protected $redirectTo = '/dashboard';
 
     /**
      * Create a new controller instance.

@@ -18,7 +18,7 @@
 Auth::routes();
 /*========== Front-end ===========*/
 Route::get('/', 'ProductController@index');
-Route::get('/news/{slug}', 'ArticleController@show');
+Route::get('/product/{slug}', 'ProductController@detail');
 Route::get('/category/{slug}', 'CategoryController@show');
 
 /*========= End front-end =========*/
@@ -29,6 +29,16 @@ Route::get('/dashboard', 'HomeController@index')->middleware('auth');
 /*========== CRUD ===============*/
 //merchant
 Route::post('/create-new-merchant' , 'UserController@newMerchant');
+
+Route::middleware(['auth', 'merchant'])->group(function () {
+    //product
+    Route::get('/product', 'ProductController@show');
+    Route::post('/tambah-product', 'ProductController@tambah');
+    Route::post('/edit-product/{id}', 'ProductController@edit');
+    Route::get('/delete-product/{id}', 'ProductController@delete');
+    Route::get('history/{id}' , 'ProductController@historyTransaction');
+
+});
 //article
 Route::get('/article' , 'CrudArticleController@index')->middleware('auth');
 Route::post('/tambah-artikel' , 'CrudArticleController@tambah')->middleware('auth');
