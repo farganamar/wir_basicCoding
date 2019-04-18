@@ -30,7 +30,7 @@ Home
 <!--Begin::Section-->
 <div class="row">
 
-    @foreach ($article as $item)
+    @foreach ($produk as $item)
     <div class="col-xl-4">
 
         <!--begin:: Widgets/Blog-->
@@ -45,16 +45,16 @@ Home
             <div class="m-portlet__body">
                 <div class="m-widget19">
                     <div class="m-widget19__pic m-portlet-fit--top m-portlet-fit--sides" style="min-height-: 286px">
-                        @if (File::exists(public_path($item->banner)))
+                        @if (File::exists(public_path($item->image)))
 
-                        <img src="{{asset($item->banner)}}" alt="">
+                        <img src="{{asset($item->image)}}" alt="">
 
                         @else
-                        <img src="{{$item->banner}}" alt="">
+                        <img src="{{$item->image}}" alt="">
 
                         @endif
                         <h3 class="m-widget19__title m--font-light">
-                            {{$item->title}}
+                            {{$item->name}}
                         </h3>
                         <div class="m-widget19__shadow"></div>
                     </div>
@@ -70,7 +70,7 @@ Home
                             </div>
                             <div class="m-widget19__info">
                                 <span class="m-widget19__username">
-                                    {{$item->author->name}}
+                                    {{$item->user->name}}
                                 </span><br>
                                 {{-- <span class="m-widget19__time">
                                     UX/UI Designer, Google
@@ -86,7 +86,7 @@ Home
                             </div>
                         </div>
                         <div class="m-widget19__body">
-                            {{str_limit($item->content, $limit = 150)}}
+                            {{str_limit($item->deskripsi, $limit = 150)}}
                         </div>
                     </div>
                     <div class="m-widget19__action">
@@ -105,7 +105,7 @@ Home
 <div class="row">
     <div class="col-xl-12">
 
-        {{$article->links()}}
+        {{$produk->links()}}
 
     </div>
 

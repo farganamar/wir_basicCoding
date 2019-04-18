@@ -159,6 +159,16 @@ License: You must have a valid license purchased only from themeforest(the above
 														<span class="m-topbar__username" data-toggle="modal" data-target="#m_modal_5">Sign In</span>
 														{{-- <span class="m-topbar__welcome">Sign In</span> --}}
 													</a>
+                                                </li>
+												<li class="m-nav__item m-topbar__user-profile m-topbar__user-profile--img  m-dropdown m-dropdown--medium m-dropdown--arrow m-dropdown--header-bg-fill m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light"
+												 m-dropdown-toggle="click">
+													<a href="#" class="m-nav__link m-dropdown__toggle">
+														<span class="m-topbar__userpic m--hide">
+															<img src="assets/app/media/img/users/user4.jpg" class="m--img-rounded m--marginless m--img-centered" alt="" />
+                                                        </span>
+														<span class="m-topbar__username" data-toggle="modal" data-target="#m_modal_7">Become a Merchant</span>
+														{{-- <span class="m-topbar__welcome">Sign In</span> --}}
+													</a>
 												</li>
 												@endguest
 
@@ -339,6 +349,50 @@ License: You must have a valid license purchased only from themeforest(the above
                     </div>
                 </div>
             </div>
+
+            <div class="modal fade" id="m_modal_7" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-md" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form method="POST" action="{{ url('/create-new-merchant') }}">
+                                @csrf
+                                <div class="form-group">
+                                    <label for="recipient-name" class="form-control-label">Name:</label>
+                                    <input class="form-control m-input" type="text" placeholder="text" name="name" autocomplete="off" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="recipient-name" class="form-control-label">Email:</label>
+                                    <input class="form-control m-input" type="text" placeholder="Email" name="email" autocomplete="off" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="recipient-name" class="form-control-label">Password:</label>
+                                    <input class="form-control m-input m-login__form-input--last" id="new_pass" type="password" placeholder="Password" name="" required>
+                                        @if ($errors->has('password'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('password') }}</strong>
+                                            </span>
+                                        @endif
+                                </div>
+                                <div class="form-group">
+                                    <label for="recipient-name" class="form-control-label">Re-type Password:</label>
+                                    <input class="form-control m-input m-login__form-input--last" type="password" id="confirm_pass" placeholder="Password" name="password" required>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="{{url('auth/google')}}"><button type="button" class="btn btn-secondary"><img src="https://img.icons8.com/color/20/000000/google-logo.png"> Sign Up With Google</button></a>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary" id="btn-register">Sign Up</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>>
 			<!-- begin::Footer -->
 			<footer class="m-grid__item m-footer ">
 				<div class="m-container m-container--responsive m-container--xxl m-container--full-height m-page__container">

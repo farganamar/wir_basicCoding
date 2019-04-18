@@ -17,7 +17,7 @@
 
 Auth::routes();
 /*========== Front-end ===========*/
-Route::get('/', 'ArticleController@index');
+Route::get('/', 'ProductController@index');
 Route::get('/news/{slug}', 'ArticleController@show');
 Route::get('/category/{slug}', 'CategoryController@show');
 
@@ -27,6 +27,8 @@ Route::get('/category/{slug}', 'CategoryController@show');
 Route::get('/dashboard', 'HomeController@index')->middleware('auth');
 
 /*========== CRUD ===============*/
+//merchant
+Route::post('/create-new-merchant' , 'UserController@newMerchant');
 //article
 Route::get('/article' , 'CrudArticleController@index')->middleware('auth');
 Route::post('/tambah-artikel' , 'CrudArticleController@tambah')->middleware('auth');

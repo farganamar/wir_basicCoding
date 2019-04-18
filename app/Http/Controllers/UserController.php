@@ -107,5 +107,19 @@ class UserController extends Controller
         return back()->with("success" , "Sukses Merubah Password ");
     }
 
+    public function newMerchant(Request $request)
+    {
+        $user = new User;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->jabatan = "merchant";
+        $user->password = $request->password;
+        $user->save();
+
+        Auth::loginUsingId($user->id);
+        return redirect()->to('/dashboard');
+
+    }
+
 
 }
