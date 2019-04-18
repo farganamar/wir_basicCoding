@@ -1,0 +1,4 @@
+
+GOOGLE_CLIENT_ID=84329434697-3sri5dcoferaieg6ru6bc1tl3gmt1q6b.apps.googleusercontent.com
+GOOGLE_CLIENT_SECRET=zaLcLr-YcdRG-JOVf1LYNs9L
+GOOGLE_REDIRECT=http://127.0.0.1:8000/auth/google/callback
