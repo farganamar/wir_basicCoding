@@ -39,29 +39,17 @@ Route::middleware(['auth', 'merchant'])->group(function () {
     Route::get('history/{id}' , 'ProductController@historyTransaction');
 
 });
-//article
-Route::get('/article' , 'CrudArticleController@index')->middleware('auth');
-Route::post('/tambah-artikel' , 'CrudArticleController@tambah')->middleware('auth');
-Route::post('/edit-artikel/{id}', 'CrudArticleController@edit')->middleware('auth');
-Route::get('/delete-artikel/{id}', 'CrudArticleController@delete')->middleware('auth');
+
+//customer
+Route::middleware(['auth'])->group(function (){
+    Route::post('beli-barang/{id}', 'CartController@tambah');
+    Route::get('list-transaction', 'UserController@listTransaction');
+});
+Route::get('list-product/{id}' , 'ProductController@lihatProductMerchant');
 
 
-//category
-Route::get('/category' , 'CrudCategoryController@index')->middleware('auth');
-Route::post('/tambah-kategori', 'CrudCategoryController@tambah')->middleware('auth');
-Route::post('/edit-kategori/{id}', 'CrudCategoryController@edit')->middleware('auth');
-Route::get('/delete-kategori/{id}', 'CrudCategoryController@delete')->middleware('auth');
 
 //user
-Route::middleware(['auth', 'admin'])->group(function () {
-
-    Route::get('/user', 'UserController@index');
-    Route::get('/ubah-jabatan/{id}', 'UserController@ubahJabatan');
-    Route::post('/tambah-user' , 'UserController@tambah');
-    Route::post('/edit-user/{id}' , 'UserController@edit');
-    Route::get('/delete-user/{id}', 'UserController@delete');
-});
-
 Route::middleware(['auth'])->group(function () {
     Route::get('/profile', 'UserController@profile');
     Route::post('update-profile/{id}', 'UserController@updateProfile');

@@ -46,8 +46,11 @@ License: You must have a valid license purchased only from themeforest(the above
 
 		<!--begin::Page Vendors Styles -->
 		<link href="{{asset('assets/vendors/custom/fullcalendar/fullcalendar.bundle.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('assets/vendors/custom/datatables/datatables.bundle.css')}}" rel="stylesheet" type="text/css" />
 
-		<!--RTL version:<link href="assets/vendors/custom/fullcalendar/fullcalendar.bundle.rtl.css" rel="stylesheet" type="text/css" />-->
+
+        <!--RTL version:<link href="assets/vendors/custom/fullcalendar/fullcalendar.bundle.rtl.css" rel="stylesheet" type="text/css" />-->
+
 
 		<!--end::Page Vendors Styles -->
 		<link rel="shortcut icon" href="{{asset('assets/demo/demo2/media/img/logo/favicon.ico')}}" />
@@ -117,11 +120,11 @@ License: You must have a valid license purchased only from themeforest(the above
 																			<span class="m-nav__section-text">Section</span>
 																		</li>
 																		<li class="m-nav__item">
-																			<a href="{{url('profile')}}" class="m-nav__link">
+																			<a href="{{url('list-transaction')}}" class="m-nav__link">
 																				<i class="m-nav__link-icon flaticon-profile-1"></i>
 																				<span class="m-nav__link-title">
 																					<span class="m-nav__link-wrap">
-																						<span class="m-nav__link-text">My Profile</span>
+																						<span class="m-nav__link-text">List Of Transaction</span>
 																					</span>
 																				</span>
 																			</a>
@@ -394,7 +397,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         </form>
                     </div>
                 </div>
-            </div>>
+            </div>
 			<!-- begin::Footer -->
 			<footer class="m-grid__item m-footer ">
 				<div class="m-container m-container--responsive m-container--xxl m-container--full-height m-page__container">
@@ -457,12 +460,15 @@ License: You must have a valid license purchased only from themeforest(the above
 
 		<!--begin::Global Theme Bundle -->
 		<script src="{{asset('assets/vendors/base/vendors.bundle.js')}}" type="text/javascript"></script>
-		<script src="{{asset('assets/demo/demo2/base/scripts.bundle.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/demo/demo2/base/scripts.bundle.js')}}" type="text/javascript"></script>
+                <script src="{{asset('assets/vendors/custom/datatables/datatables.bundle.js')}}" type="text/javascript"></script>
+
 
 		<!--end::Global Theme Bundle -->
 
 		<!--begin::Page Vendors -->
-		<script src="{{asset('assets/vendors/custom/fullcalendar/fullcalendar.bundle.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/vendors/custom/fullcalendar/fullcalendar.bundle.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/demo/default/custom/crud/datatables/basic/basic.js')}}" type="text/javascript"></script>
 
 		<!--end::Page Vendors -->
 

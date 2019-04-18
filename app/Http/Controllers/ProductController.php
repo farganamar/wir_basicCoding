@@ -26,6 +26,14 @@ class ProductController extends Controller
         return view('detail-produk', compact('produk', 'category'));
     }
 
+    public function lihatProductMerchant($id)
+    {
+        $produk = Product::paginate(5);
+        $category  = Category::all();
+        return view( 'merchant-produk' , compact('produk', 'category'));
+
+    }
+
 
     //backend
 
@@ -93,6 +101,6 @@ class ProductController extends Controller
     public function historyTransaction($id)
     {
         $history = Cart::where('product_id' , $id)->get();
-        return $history;
+        return view('crud.product.history', compact('history'));
     }
 }

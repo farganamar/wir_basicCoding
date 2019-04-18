@@ -41,6 +41,7 @@ class AuthSocial extends Controller
                 Auth::loginUsingId($user->id);
             }
             return redirect()->to('/');
+            // return back();
         } catch (Exception $e) {
             return $e;
         }

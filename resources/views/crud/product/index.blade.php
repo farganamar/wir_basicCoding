@@ -36,7 +36,8 @@
                     <td>{{$item->qty}}</td>
                     <td>{{$item->created_at}}</td>
                     <td>{{$item->updated_at}}</td>
-                    <td><button class="btn m-btn--pill btn-primary btn-sm" data-toggle="modal" data-target="#m_modal_edit_{{$item->id}}">Edit</button><a href="{{url('delete-product' , $item->id)}}"><button class="btn m-btn--pill    btn-danger btn-sm">Delete</button></a></td>
+                    <td><button class="btn m-btn--pill btn-primary btn-sm" data-toggle="modal" data-target="#m_modal_edit_{{$item->id}}">Edit</button><a href="{{url('delete-product' , $item->id)}}"><button class="btn m-btn--pill    btn-danger btn-sm">Delete</button></a><a href="{{url('history' , $item->id)}}"><button class="btn m-btn--pill    btn-warning btn-sm">List Of Buyer</button></a></td>
+
                 </tr>
                 @endforeach
             </tbody>

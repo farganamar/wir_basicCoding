@@ -7,6 +7,8 @@ use App\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use App\Category;
+use App\Cart;
 
 class UserController extends Controller
 {
@@ -77,7 +79,16 @@ class UserController extends Controller
     public function profile()
     {
         $user = User::find(Auth::user()->id);
-        return view('crud.user.profile', compact('user'));
+        $category = Category::all();
+        return view('crud.user.profile', compact('user', 'category'));
+    }
+
+    public function listTransaction()
+    {
+        $user = User::find(Auth::user()->id);
+        $category = Category::all();
+        $cart = Cart::where('user_id', Auth::user()->id)->get();
+        return view('list-transaction', compact('user', 'category', 'cart'));
     }
 
     public function updateProfile(Request $request, $id)

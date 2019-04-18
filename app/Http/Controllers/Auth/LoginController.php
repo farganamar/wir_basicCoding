@@ -25,7 +25,8 @@ class LoginController extends Controller
             return redirect()->intended('/dashboard');
         }
 
-        return redirect()->intended('/');
+        // return redirect()->intended('/');
+        return back();
     }
     /**
      * Where to redirect users after login.

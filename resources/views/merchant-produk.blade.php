@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 @section('menu')
-    <li class="m-menu__item  m-menu__item--submenu m-menu__item--active " m-menu-submenu-toggle="click" aria-haspopup="true"><a href="javascript:;" class="m-menu__link m-menu__toggle" title="Non functional dummy link"><span class="m-menu__item-here"></span><span
+    <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel" m-menu-submenu-toggle="click" aria-haspopup="true"><a href="javascript:;" class="m-menu__link m-menu__toggle" title="Non functional dummy link"><span class="m-menu__item-here"></span><span
                 class="m-menu__link-text">Category</span><i class="m-menu__hor-arrow la la-angle-down"></i><i class="m-menu__ver-arrow la la-angle-right"></i></a>
         <div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--left"><span class="m-menu__arrow m-menu__arrow--adjust"></span>
             <ul class="m-menu__subnav">
@@ -12,7 +12,7 @@
     </li>
 @endsection
 @section('header-title')
-{{$kategori->name}}
+{{$produk[0]->user->name}}
 @endsection
 @section('date')
     <span class="m-subheader__daterange" id="m_dashboard_daterangepicker">
@@ -110,6 +110,7 @@
     </div>
 
 </div>
+
 <!--End::Section-->
 
 

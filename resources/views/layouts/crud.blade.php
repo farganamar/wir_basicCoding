@@ -74,7 +74,7 @@ License: You must have a valid license purchased only from themeforest(the above
 							<div class="m-stack m-stack--ver m-stack--general">
 								<div class="m-stack__item m-stack__item--middle m-stack__item--center m-brand__logo">
 									<a href="{{url('dashboard')}}" class="m-brand__logo-wrapper">
-										<img alt="" src="assets/demo/demo3/media/img/logo/logo.png" />
+										<img alt="" src="{{asset('assets/demo/demo3/media/img/logo/logo.png')}}" />
 									</a>
 								</div>
 								<div class="m-stack__item m-stack__item--middle m-brand__tools">
@@ -140,7 +140,7 @@ License: You must have a valid license purchased only from themeforest(the above
 										 m-dropdown-toggle="click">
 											<a href="#" class="m-nav__link m-dropdown__toggle">
 												<span class="m-topbar__userpic">
-													<img src="assets/app/media/img/users/user4.jpg" alt="" />
+													<img src="{{asset('assets/app/media/img/users/user4.jpg')}}" alt="" />
 												</span>
 											</a>
 											<div class="m-dropdown__wrapper">
@@ -149,7 +149,7 @@ License: You must have a valid license purchased only from themeforest(the above
 													<div class="m-dropdown__header m--align-center" style="background: url(assets/app/media/img/misc/user_profile_bg.jpg); background-size: cover;">
 														<div class="m-card-user m-card-user--skin-dark">
 															<div class="m-card-user__pic">
-																<img src="assets/app/media/img/users/user4.jpg" alt="" />
+																<img src="{{asset('assets/app/media/img/users/user4.jpg')}}" alt="" />
 															</div>
 															<div class="m-card-user__details">
 																<span class="m-card-user__name m--font-weight-500">{{Auth::user()->name}}</span>
